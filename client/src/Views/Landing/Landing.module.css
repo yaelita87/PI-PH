@@ -1,0 +1,13 @@
+.container{
+   background: url("../../Images/412399-Pacman-Pac-Man-arcade-3D-sketchup-Namco.jpeg");
+   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 100%;
+}
+
+.lanh1{
+    color: aliceblue;
+}
+.lanh2{
+    color: white;
+}
