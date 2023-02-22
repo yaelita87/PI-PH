@@ -2,24 +2,24 @@ import style from "./Card.module.css";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Card = ({name, id, background_image, genres })=>{ //traigo las props
-
-    console.log(genres);
+const Card = ({game })=>{ //traigo las props
+console.log(game);
+    
     return(
         <div className={style.content}>
-            <img src={background_image} alt="image not found" width="200px" height="250px" />
-            <Link to={`/detail/${id}`}>
+            <img src={game.background_image} alt="image not found" width="200px" height="250px" />
+            <Link to={`/detail/${game.id}`}>
 
-            <h3>{name}</h3>
+            <h3>{game.name}</h3>
             </Link>
-            <h5>{id}</h5>
-            <h5>
+            <h5>{game.id}</h5>
+            {/* <h5>
                 {
-                    genres.map((g)=>(
+                    genres?.map((g)=>(
                         <p>{g.name}</p>
                     ))
                 }
-            </h5>
+            </h5> */}
             
         </div>
     )

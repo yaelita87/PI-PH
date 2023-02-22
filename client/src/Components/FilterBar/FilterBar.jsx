@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import style from "./FilterBar.module.css";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { filterAlpha, filterByGender,createOrExist, ratingFilter, getGender } from "../../redux/actions";
+import { filterAlpha, filterByGender,createOrExist, ratingFilter, getGenre } from "../../redux/actions";
 
 const FilterBar = ()=>{
 
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        dispatch(getGender());
+        dispatch(getGenre());
     },[dispatch]);
 
-    const gender = useSelector((state)=> state.gender);
+    const gender = useSelector((state)=> state.genre);
     const games = useSelector((state)=> state.videogames);
 
     function handlerFilterGender(e){ //despacho de accion traer geners

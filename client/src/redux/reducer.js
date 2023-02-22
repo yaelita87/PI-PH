@@ -11,7 +11,7 @@ import {GET_VIDEOGAMES,
 
 const initialState = {
     videogames: [],  //inicio el estado en un array vacio
-    gender: [],
+    genre: [],
     detail:{},
    allVideogames:[],
    filter:[]
@@ -50,14 +50,14 @@ const reducer = (state= initialState, action) =>{
     case GET_GENRES:
         return{
             ...state,
-            gender: action.payload
+            genre: action.payload
         
     }
     case FILTER_GENDER:
     const allgenders = state.allVideogames;
     const vgfiltered = [];
-    allgenders.forEach((vg)=> vg.gender.forEach((gender)=>{
-        if(gender.name === action.payload){
+    allgenders.forEach((vg)=> vg.genre.forEach((genre)=>{
+        if(genre.name === action.payload){
             vgfiltered.push(vg);
         };
         return {

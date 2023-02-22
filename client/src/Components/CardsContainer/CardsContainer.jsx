@@ -23,10 +23,10 @@ const CardsContainer = ({vgPerPage, page})=>{
                 ).map((game)=> (
                     <Card
                     game={game}
-                    // name= {game.name}
-                    // id= {game.id}
-                    // background_image={game.background_image}
-                    // genres= {game.genres}
+                    name= {game.name}
+                    id= {game.id}
+                    background_image={game.background_image}
+                    genres= {game.genres}
                     />
                 ))
             }

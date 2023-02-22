@@ -42,7 +42,7 @@ export function getNameGame(name) { //recibo el nombre como parametro
         }
       }};
 
-export function getGender(){
+export function getGenre(){
     return async function(dispatch){
         const json = await axios.get('http://localhost:3001/genres');
         return dispatch({

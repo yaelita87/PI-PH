@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Gender } = require("../db");
+const { Genre } = require("../db");
 require('dotenv').config();
 const { API_KEY } = process.env;
 
@@ -12,13 +12,13 @@ const getApiGender = async () => {
         }
     })
     filteredApiGender.forEach(genre => { //recorro esos result 
-      Gender.findOrCreate({ //me fijo si existe en la BD y sino lo creo  OJO CON findOrCreate (uso estrict necesario)
+      Genre.findOrCreate({ //me fijo si existe en la BD y sino lo creo  OJO CON findOrCreate (uso estrict necesario)
         where:{
           name: genre.name
         }
       })      
     });
-   const total = await Gender.findAll(); //me traigo todos los generos de la Bd
+   const total = await Genre.findAll(); //me traigo todos los generos de la Bd
    return total; 
 }
 

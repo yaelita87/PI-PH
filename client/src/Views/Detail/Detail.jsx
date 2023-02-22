@@ -8,7 +8,7 @@ import {useParams, Link} from 'react-router-dom';
 const Detail = ()=>{
     const dispatch = useDispatch();
     const {id} = useParams();
-    
+    console.log(id);
     useEffect(()=> {
          dispatch(getDetail(id));
     },[dispatch,id]);

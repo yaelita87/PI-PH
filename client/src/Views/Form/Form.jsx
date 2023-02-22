@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getGender, postVg } from '../../redux/actions';
+import { getGenre, postVg } from '../../redux/actions';
 import style from './Form.module.css';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const Form = ()=>{
 
     const dispatch = useDispatch();
     const history = useHistory(); //acceso a la instacia del historial (para que vuelva a home)
-    const gender = useSelector((state) => state.gender);  //stado del reducer
+    const genre = useSelector((state) => state.genre);  //stado del reducer
     
     
     
@@ -35,16 +35,17 @@ const Form = ()=>{
         description: "",
         release: "",
         rating: 0,
-        gender: [],
+        genre: [],
         background_image: "",
-        platforms: ["ps4"],
+        platforms: [],
     });
     
     useEffect(()=>{
-        dispatch(getGender()); //despacho la accion para traerme los generos 
+        dispatch(getGenre()); //despacho la accion para traerme los generos 
     },[dispatch]);
    
     const handleInputChange = (e)=>{  //paso el event para que se setee lo q escribe el cliente en el form
+        
         setError(
             validate({    //seteo la prop con el value de error en el caso que haya
                 ...form,
@@ -53,15 +54,28 @@ const Form = ()=>{
         setForm({
             ...form,
             [e.target.name]: e.target.value, //seteo la prop con el value que le pasan
+           
         })
     
         
     }
+    
+    const selectPlat = (e)=> {
+        const prop = e.target.value
+         setForm({
+             ...form,
+             platforms: [...form.platforms, prop]
+         })
+    }
+    
     const selectHandler = (e)=>{
+        console.log(e.target);
         const prop = e.target.value   //selecciono entre los distinros generos de videjuegos
         setForm({
             ...form, 
-            gender: [...form.gender, prop]
+            genre: prop
+            
+            
         });
     }
     const submitHandler = (e)=>{   //manejador del boton de submit para enviar el formulario
@@ -72,23 +86,23 @@ const Form = ()=>{
                 [e.target.name]: e.target.value
             })
         )
-        if(Object.keys(error).length === 0){   //si el form no maneja errores 
+        // if(Object.keys(error).length === 0){   //si el form no maneja errores 
             dispatch(postVg(form));        // despacho la accion del formulario
             alert("Videogame Created Success");  //alerta de videojuego creado
-            setForm({                    //seteo de formulario para que sus valores vuelvan a cero
-                name:"",
-                description: "",
-                release: "",
-                rating: 0,
-                gender: [],
-                background_image: "",
-               platforms: [],
-            });
+            // setForm({                    //seteo de formulario para que sus valores vuelvan a cero
+            //     name:"",
+            //     description: "",
+            //     release: "",
+            //     rating: 0,
+            //     genre: [],
+            //     background_image: "",
+            //    platforms: [],
+            // });
 
-        } else {
-            alert("Failed");
-            return;
-        }
+        // } else {
+        //     alert("Failed");
+        //     return;
+        // }
     }
 console.log(form);
     
@@ -140,30 +154,26 @@ console.log(form);
                
             </div>
             <div>
-            <label htmlFor="">Genders:</label>
+            <label htmlFor="">Genres:</label>
                 <select onChange={(e)=> selectHandler(e)}>
-                    {gender.map(g=>(
+                    {genre.map(g=>(
                         <option value={g.name} key={g.id}>{g.name}</option>
                     ))}
                 </select>
-                 <ul>
-                     
-                         {form.gender.map(e => e + ", ")
-                         }
-                         </ul>               
+                               
             </div>
             <div>
                 <label htmlFor="">Platforms:</label>
-                <select name="Select" id="">
-                <option value="v1">Ps3</option>
-                <option value="v2">Ps4</option>
-                <option value="v3">Ps Vita</option>
-                <option value="v4">XBox</option>
-                <option value="v5">Xbox 360</option>
-                <option value="v6">Nintendo</option>
-                <option value="v7">MacOS</option>
-                <option value="v8">PC</option>
-                <option value="v9">Linux</option>
+                <select name="platforms" id="" onChange={(e)=>selectPlat(e)}>
+                <option value="Ps3">Ps3</option>
+                <option value="Ps4">Ps4</option>
+                <option value="Ps Vita">Ps Vita</option>
+                <option value="Xbox">XBox</option>
+                <option value="Xbox 360">Xbox 360</option>
+                <option value="Nintendo">Nintendo</option>
+                <option value="MacOs">MacOS</option>
+                <option value="PC">PC</option>
+                <option value="Linux">Linux</option>
                 </select>
             </div>
            
@@ -186,5 +196,6 @@ console.log(form);
         </>
     )
 }
+
 
 export default Form;
