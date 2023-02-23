@@ -13,13 +13,14 @@ console.log(game);
             <h3>{game.name}</h3>
             </Link>
             <h5>{game.id}</h5>
-            {/* <h5>
+            <h5>
                 {
-                    genres?.map((g)=>(
+                    game.genres?.map((g)=>(
                         <p>{g.name}</p>
                     ))
                 }
-            </h5> */}
+            </h5>
+            
             
         </div>
     )

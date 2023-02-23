@@ -85,6 +85,7 @@ export function createOrExist(payload){
 }
   
 export function filterAlpha(payload){
+  console.log(payload);
   return{
     type: 'ALPHABETICAL',
     payload,

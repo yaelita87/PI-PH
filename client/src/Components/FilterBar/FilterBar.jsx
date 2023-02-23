@@ -17,6 +17,7 @@ const FilterBar = ()=>{
 
     function handlerFilterGender(e){ //despacho de accion traer geners
        // setPage(1);
+      
         dispatch(filterByGender(e.target.value));
     }
 
@@ -45,7 +46,7 @@ const FilterBar = ()=>{
                 </select>
             </div>
             <div>
-                {/* <select onChange={(e)=>handlerFilterGender(e)}>
+                <select onChange={(e)=>handlerFilterGender(e)}>
                     <option value="gender">Gender</option>
                    {
                        gender.map((g)=> (
@@ -53,7 +54,7 @@ const FilterBar = ()=>{
                        ))
                    }
 
-                </select> */}
+                </select>
 
             </div>
             <div>

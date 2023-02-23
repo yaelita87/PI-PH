@@ -14,7 +14,7 @@ const Detail = ()=>{
     },[dispatch,id]);
     
     const detail = useSelector((state)=> state.detail);
-
+console.log(detail);
     return (
         <>
         <div>
@@ -39,7 +39,7 @@ const Detail = ()=>{
                         <ul>
                             {
                                 detail.platforms?.map((p)=>(
-                                    <li>{p.platforms}</li>
+                                    <li>{p}</li>
                                 ))
                             }
                         </ul>

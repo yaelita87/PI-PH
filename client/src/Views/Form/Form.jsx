@@ -35,7 +35,7 @@ const Form = ()=>{
         description: "",
         release: "",
         rating: 0,
-        genre: [],
+        gender: [],
         background_image: "",
         platforms: [],
     });
@@ -73,7 +73,7 @@ const Form = ()=>{
         const prop = e.target.value   //selecciono entre los distinros generos de videjuegos
         setForm({
             ...form, 
-            genre: prop
+            gender: [...form.gender,prop]
             
             
         });

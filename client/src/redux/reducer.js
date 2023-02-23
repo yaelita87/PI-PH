@@ -56,7 +56,7 @@ const reducer = (state= initialState, action) =>{
     case FILTER_GENDER:
     const allgenders = state.allVideogames;
     const vgfiltered = [];
-    allgenders.forEach((vg)=> vg.genre.forEach((genre)=>{
+    allgenders.forEach((vg)=> vg.genres.forEach((genre)=>{
         if(genre.name === action.payload){
             vgfiltered.push(vg);
         };

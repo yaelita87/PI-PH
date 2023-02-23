@@ -36,15 +36,15 @@ const dbFilter = (item)=> {
 }}
 
 const getAllApiVideogames = async ()=>{
-    //let apiVG = [];
+    let apiVG = [];
     for(let i = 1; i < 6; i++){ //trae unos 100 juegos 20 x cada pag
         let allApiVG = await axios.get( //peticion asincrona a la api
             `https://api.rawg.io/api/games?key=${API_KEY}&page=${i}` //rcorre cda page
         );
-       // apiVG = apiVG.concat(allApiVG.data.results); // conctateno los resultados en mi nueva variable
-       const filtro = allApiVG.data.results.map((item) => apiFilter(item));
-       return filtro;
-    }
+        apiVG = apiVG.concat(allApiVG.data.results); // conctateno los resultados en mi nueva variable
+      }
+      const filtro = apiVG.map((item) => apiFilter(item));
+      return filtro;
     // newApiVG = apiVG.map((vg)=>{  //mapeo los result y me traigo solo la info que me interesa
     //     return {
     //         id: vg.id,
