@@ -1,23 +1,52 @@
 import style from './CardsContainer.module.css';
 import Card from "../Card/Card";
 import { useSelector } from 'react-redux';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 const CardsContainer = ({vgPerPage, page})=>{
-    const games = useSelector((state) => state.videogames); //selc estado
-
+    let games = useSelector((state) => state.videogames); //selc estado
+    games &&
+    console.log(games);
     
+    
+    // const [vGames, setvGames] = useState();
+
+    // useEffect(()=>{
+    //    games && setvGames(games) 
+    //    console.log(games);
+    // },[]);
+    
+    // const handlerAlpha = (e)=>{
+        
+    //      if(e.target.value === "asc"){
+    //          games.sort(function(a,b){
+    //             if(a.name > b.name){
+    //                 return 1; 
+    //             }
+    //             if(b.name > a.name){
+    //               return  -1;
+    //             }
+    //             return 0;
+    //         })
+    //      }
+    //     }
+    //     console.log(vGames);
   
 
     //renderizo las props necesarias y la card (GAMe)
     return(
         <div>
+              {/* <select onChange= {handlerAlpha}>
+                    <option value="All">Select</option>
+                    <option value="asc">A to Z</option>
+                    <option value="desc">Z to A</option>
+                </select>
         <div className={style.container}>
             {
                 games?.slice(
-                    //si pag es 1, empieza en 0 y termina en 15
-                    //si es 2 empieza en 15 y ter en 30 
+                   // si pag es 1, empieza en 0 y termina en 15
+                   // si es 2 empieza en 15 y ter en 30 
                     //la variable PAge es la que va a ir cambando en el componente pagibnadp
                     (page -1)* vgPerPage,
                     (page - 1) * vgPerPage + vgPerPage
@@ -32,7 +61,7 @@ const CardsContainer = ({vgPerPage, page})=>{
                     />
                 ))
             }
-        </div>
+        </div> */}
         </div>
     )
 }

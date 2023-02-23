@@ -16,6 +16,7 @@ const initialState = {
    allVideogames:[],
    filter:[],
    
+   
     
 }
 
@@ -26,14 +27,15 @@ const reducer = (state= initialState, action) =>{
          return{
              ...state,
              videogames: action.payload, //es el valor q le paso (en este caso es el get al locallhost)
-             filter: action.payload,  //copia de los estados anteriores
+             //filter: action.payload,  //copia de los estados anteriores
              allVideogames: action.payload,
             }
     
      case GET_GAMES_BY_NAME:
          return{
              ...state,
-             videogames: action.payload
+             videogames: action.payload,
+             allVideogames: action.payload
              
          }
     case GET_DETAIL:
@@ -69,23 +71,7 @@ const reducer = (state= initialState, action) =>{
             videogames: action.payload === "all" ? allGenresVg : filterVG
         
     }
-    //  if(action.payload === "All"){
-    //  return{
-    //      ...state,
-    //      allVideogames: state.videogames,
-    //  } 
-    // } return{
-    //     ...state,
-    //     allVideogames: state.videogames.filter((vg)=> vg.genres.name.includes(action.payload))
-    // }
-     
-    //  ? [...state.videogames]
-    //  : [...state.videogames].filter((game)=> game.genres.map((g)=> g.name));
 
-    //  return {
-    //      ...state,
-    //      allVideogames: filterVg,
-    //  }
 
 
  
@@ -94,55 +80,55 @@ const reducer = (state= initialState, action) =>{
     //     ? state.allVideogames.filter((v)=> v.created)
     //     : state.allVideogames.filter((v)=> !v.created)
 
-    // case ALPHABETICAL:
-    //     let sortArray = action.payload === "asc" ?
-    //     state.videogames.sort(function(a,b){
-    //         if(a.name > b.name){
-    //             return 1; 
-    //         }
-    //         if(b.name < a.name){
-    //           return  -1;
-    //         }
-    //         return 0;
-    //     })
-    //    : state.videogames.sort(function(a,b){
-    //        if(a.name > b.name){
-    //            return -1;
-    //        }
-    //        if(a.name < b.name){
-    //            return 1;
-    //        }
-    //        return 0;
-    //    });
-    //       return {
-    //           ...state,
-    //           videogames: sortArray,
-    //       }  
+    case ALPHABETICAL:
+        let sortArray = action.payload === "asc" ?
+        [...state.allVideogames].sort(function(a,b){
+            if(a.name > b.name){
+                return 1; 
+            }
+            if(b.name > a.name){
+              return  -1;
+            }
+            return 0;
+        })
+       : [...state.allVideogames].sort(function(a,b){
+           if(a.name > b.name){
+               return -1;
+           }
+           if(a.name < b.name){
+               return 1;
+           }
+           return 0;
+       });
+          return {
+              ...state,
+              allVideogames: sortArray,
+          }  
 
-    //       case RATING: 
-    //       let sortRat = action.payload === "low" ?
-    //       state.videogames.sort(function(a,b){
-    //           if(a.name > b.name){
-    //               return 1; 
-    //           }
-    //           if(b.name < a.name){
-    //             return  -1;
-    //           }
-    //           return 0;
-    //       })
-    //      : state.videogames.sort(function(a,b){
-    //          if(a.name > b.name){
-    //              return -1;
-    //          }
-    //          if(a.name < b.name){
-    //              return 1;
-    //          }
-    //          return 0;
-    //      });
-    //         return {
-    //             ...state,
-    //             videogames: sortRat,
-    //         }  
+          case RATING: 
+          let sortRat = action.payload === "low" ?
+          state.videogames.sort(function(a,b){
+              if(a.name > b.name){
+                  return 1; 
+              }
+              if(b.name < a.name){
+                return  -1;
+              }
+              return 0;
+          })
+         : state.videogames.sort(function(a,b){
+             if(a.name > b.name){
+                 return -1;
+             }
+             if(a.name < b.name){
+                 return 1;
+             }
+             return 0;
+         });
+            return {
+                ...state,
+                videogames: sortRat,
+            }  
 
   
     default:

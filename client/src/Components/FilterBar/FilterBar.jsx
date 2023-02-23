@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import style from "./FilterBar.module.css";
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { filterAlpha, filterByGender,createOrExist, ratingFilter, getGenre } from "../../redux/actions";
+import { filterAlpha, filterByGender,createOrExist, ratingFilter, getGenre, getVideogames } from "../../redux/actions";
 
 const FilterBar = ()=>{
 
     const dispatch = useDispatch();
     const [filter, setFilter] = useState([]);
+    const [order, setOrder] = useState("");
     
     useEffect(() => {
         fetch("http://localhost:3001/genres")
@@ -25,15 +26,15 @@ const FilterBar = ()=>{
         
       }, []);
 
+   
+    useEffect(()=> {
+        dispatch(getVideogames());
+    },[dispatch]);
 
+    
 
-
-    // useEffect(()=> {
-    //     dispatch(getGenre());
-    // },[dispatch]);
-
-    const genres = useSelector((state)=> state.genre);
-    const games = useSelector((state)=> state.videogames);
+    //const filt = useSelector((state)=> state.filter);
+    //const games = useSelector((state)=> state.videogames);
 
     function handlerFilterGender(e){ //despacho de accion traer geners
        // setPage(1);
@@ -41,33 +42,36 @@ const FilterBar = ()=>{
         dispatch(filterByGender(e.target.value));
     }
 
-    // function handlerFilterCrOEx(e){ //despacho de accion traer existe o creados
-    //     //setPage(1);
-    //     dispatch(createOrExist(e.target.value));
-    // }
-    // function handlerAlpha(e){ //despacho de accion traer
-    //    //setPage(1);
-    //    e.preventDefault();
-    //    dispatch(filterAlpha(e.target.value));
-    // }
+    function handlerFilterCrOEx(e){ //despacho de accion traer existe o creados
+        //setPage(1);
+        dispatch(createOrExist(e.target.value));
+     }
+    function handlerAlpha(e){ //despacho de accion traer
+       //setPage(1);
+     dispatch(filterAlpha(e.target.value));
+       setOrder(`Orden ${e.target.value}`)
+    }
+    
 
-    // function handlerRating(e){ //despacho de accion traer
-    //    //setPage(1);
-    //    e.preventDefault();
-    //    dispatch(ratingFilter(e.target.value));
-    // }
+  
+
+    function handlerRating(e){ //despacho de accion traer
+       //setPage(1);
+       e.preventDefault();
+       dispatch(ratingFilter(e.target.value));
+    }
     return(
         <div className={style.main}>
-            {/* <div>
+            <div>
                 <select onChange={(e)=>handlerAlpha(e)}>
-                    <option value="">Select</option>
+                    <option value="All">Select</option>
                     <option value="asc">A to Z</option>
                     <option value="desc">Z to A</option>
                 </select>
-            </div> */}
+            </div>
             <div>
                 <select onChange={(e)=>handlerFilterGender(e)}>
-                    <option value="">Genres</option>
+                    <option value="all">Genres</option>
                     
                    {
                     filter.map((g)=> (
@@ -83,7 +87,7 @@ const FilterBar = ()=>{
         
 
             </div>
-            {/* <div>
+            <div>
                 <select onChange={(e)=>handlerFilterCrOEx(e)}>
                   <option value="">Select</option>
                   <option value="all">All videogames</option>
@@ -97,7 +101,7 @@ const FilterBar = ()=>{
                     <option value="low">LOW</option>
                     <option value="high">HIGH</option>
                 </select>
-                </div>*/}
+                </div>
         </div> 
     )
 }
