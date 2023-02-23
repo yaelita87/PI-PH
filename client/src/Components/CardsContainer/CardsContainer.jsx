@@ -6,6 +6,8 @@ import React from 'react';
 
 const CardsContainer = ({vgPerPage, page})=>{
     const games = useSelector((state) => state.videogames); //selc estado
+
+    
   
 
     //renderizo las props necesarias y la card (GAMe)
