@@ -4,7 +4,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { getVideogames } from "../../redux/actions.js";
-import {Link} from "react-router-dom";
 import { Paginado } from "../../Components/Paginado/Paginado";
 
 
@@ -30,22 +29,13 @@ const Home = ()=>{
         <div>
             <div>
                <h1>Videogames</h1>
-
-                <FilterBar />
+                <FilterBar allVideg = {allVideog}/>
         </div>
+          <CardsContainer vgPerPage={vgPerPage}  page = {page} allVideg={allVideog}/>
 
 
-
-        <CardsContainer vgPerPage={vgPerPage} totalVg = {totalVg} page = {page} setPage={setPage} allVideg={allVideog}/>
-
-
-        <Paginado
-        totalVg={totalVg} 
-        vgPerPage={vgPerPage}
-        page={page}
-        setPage={setPage}
-
-        />
+        <Paginado totalVg={totalVg} 
+        vgPerPage={vgPerPage} page={page} setPage={setPage}/>
 
         </div>
     ) } else{ return(<div> Cargando...</div>)}

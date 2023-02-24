@@ -209,7 +209,8 @@ const createVideogame = async (  //armo el modelo del nuevo videojuego
       released, 
       rating, 
       platforms, 
-      background_image});
+      background_image,
+      });
 
 
       let dbGender = await Genre.findOne({

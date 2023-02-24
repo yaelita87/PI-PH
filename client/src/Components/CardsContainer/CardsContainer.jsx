@@ -1,44 +1,19 @@
 import style from "./CardsContainer.module.css";
 import Card from "../Card/Card";
-import { useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
+
+import React, {  useState } from "react";
 
 const CardsContainer = ({ vgPerPage, page, allVideg}) => {
-  // let games = useSelector((state) => state.videogames); //selc estado
+ 
 
   const [gamesOrder, setGamesOrder] = useState([]);
-  const [prueba, setPrueba] = useState([]);
-
+  const [order, setOrder] = useState([]);
+  
+  
   const handlerAlpha = (e) => {
-    // if (e.target.value === "asc") {
-    //   const ordenamiento = videoGamesEze.sort(function (a, b) {
-    //     if (a.name > b.name) {
-    //       return 1;
-    //     }
-    //     if (b.name > a.name) {
-    //       return -1;
-    //     }
-    //     return 0;
-    //   });
-
-    //   setGamesOrder(ordenamiento);
-    // } else if (e.target.value === "desc") {
-    //   const ordenamiento = videoGamesEze.sort(function (a, b) {
-    //     if (a.name < b.name) {
-    //       return 1;
-    //     }
-    //     if (b.name < a.name) {
-    //       return -1;
-    //     }
-    //     return 0;
-    //   });
-
-    //   setGamesOrder(ordenamiento);
-    // }
-
     if (e.target.value === "asc") {
-      console.log("Puto");
-      setPrueba(
+      console.log("funciona maldita sea");
+      setGamesOrder(
         allVideg.sort((a, b) => {
           if (a.name > b.name) return 1;
           if (b.name > a.name) return -1;
@@ -54,9 +29,33 @@ const CardsContainer = ({ vgPerPage, page, allVideg}) => {
           return 0;
         })
       );
-      setPrueba([])
+      setGamesOrder([])
     }
   };
+
+  const handlerRating=(e)=>{ //despacho de accion traer
+    if(e.target.value === "low"){
+        console.log(allVideg)
+      setOrder(
+          allVideg.sort((a,b)=> {
+              if(a.rating >b.rating) return 1;
+              if(b.rating > a.rating) return -1;
+              return 0;
+          })
+      );
+      setOrder([]);
+       
+    } else if(e.target.value === "high"){
+        console.log(allVideg);
+        setOrder(
+            allVideg.sort((a,b)=>{
+                if(a.rating < b.rating) return 1;
+                if(b.rating < a.rating) return -1;
+                return 0;
+            })
+            ); setOrder([])
+    }
+    }
 
   //renderizo las props necesarias y la card (GAMe)
   return (
@@ -67,30 +66,19 @@ const CardsContainer = ({ vgPerPage, page, allVideg}) => {
         <option value="asc">A to Z</option>
         <option value="desc">Z to A</option>
       </select>
+      <div>
+      <select onChange={(e)=> handlerRating(e)}>
+                    <option value="">Rating</option>
+                    <option value="low">LOW</option>
+                    <option value="high">HIGH</option>
+                </select>
+                
+      </div>
 
       <div className={style.container}>
-        {/* {
-                videoGamesEze?.slice(
-                   // si pag es 1, empieza en 0 y termina en 15
-                   // si es 2 empieza en 15 y ter en 30 
-                    //la variable PAge es la que va a ir cambando en el componente pagibnadp
-                    (page -1)* vgPerPage,
-                    (page - 1) * vgPerPage + vgPerPage
-
-                ).map((game)=> (
-                    <Card
-                    key={game.name}
-                    game={game}
-                    name= {game.name}
-                    id= {game.id}
-                    background_image={game.background_image}
-                    genres= {game.genres}
-                    />
-                ))
-            } */}
-
-        {gamesOrder.length > 0 &&
-          gamesOrder.slice(
+      
+      {order.length > 0 &&
+          order.slice(
             // si pag es 1, empieza en 0 y termina en 15
             // si es 2 empieza en 15 y ter en 30 
              //la variable PAge es la que va a ir cambando en el componente pagibnadp
@@ -99,50 +87,32 @@ const CardsContainer = ({ vgPerPage, page, allVideg}) => {
 
          ).map((game) => (
             <Card
-              key={game.name}
-              game={game}
-              name={game.name}
-              id={game.id}
-              background_image={game.background_image}
+              key={game.name} game={game} name={game.name} id={game.id} background_image={game.background_image}
               genres={game.genres}
             />
           ))}
 
-        {prueba.length > 0
-          ? prueba.slice(
-            // si pag es 1, empieza en 0 y termina en 15
-            // si es 2 empieza en 15 y ter en 30 
-             //la variable PAge es la que va a ir cambando en el componente pagibnadp
-             (page -1)* vgPerPage,
+
+        {gamesOrder.length > 0
+          ? gamesOrder.slice((page -1)* vgPerPage,
              (page - 1) * vgPerPage + vgPerPage
 
          ).map((game) => (
               <Card
-                key={game.name}
-                game={game}
-                name={game.name}
-                id={game.id}
-                background_image={game.background_image}
+                key={game.name} game={game} name={game.name} id={game.id} background_image={game.background_image}
                 genres={game.genres}
               />
             ))
-          : allVideg.slice(
-            // si pag es 1, empieza en 0 y termina en 15
-            // si es 2 empieza en 15 y ter en 30 
-             //la variable PAge es la que va a ir cambando en el componente pagibnadp
-             (page -1)* vgPerPage,
+          : allVideg.slice((page -1)* vgPerPage,
              (page - 1) * vgPerPage + vgPerPage
 
          ).map((game) => (
               <Card
-                key={game.name}
-                game={game}
-                name={game.name}
-                id={game.id}
-                background_image={game.background_image}
+                key={game.name} game={game} name={game.name} id={game.id} background_image={game.background_image}
                 genres={game.genres}
               />
             ))}
+           
       </div>
     </div>
   );
