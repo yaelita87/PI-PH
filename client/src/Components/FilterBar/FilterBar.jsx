@@ -46,11 +46,7 @@ const FilterBar = ()=>{
         //setPage(1);
         dispatch(createOrExist(e.target.value));
      }
-    function handlerAlpha(e){ //despacho de accion traer
-       //setPage(1);
-     dispatch(filterAlpha(e.target.value));
-       setOrder(`Orden ${e.target.value}`)
-    }
+    
     
 
   
@@ -62,13 +58,7 @@ const FilterBar = ()=>{
     }
     return(
         <div className={style.main}>
-            <div>
-                <select onChange={(e)=>handlerAlpha(e)}>
-                    <option value="All">Select</option>
-                    <option value="asc">A to Z</option>
-                    <option value="desc">Z to A</option>
-                </select>
-            </div>
+            
             <div>
                 <select onChange={(e)=>handlerFilterGender(e)}>
                     <option value="all">Genres</option>
