@@ -1,13 +1,13 @@
 import style from "./FilterBar.module.css";
 import React, {useEffect, useState} from "react";
 import {useDispatch} from 'react-redux';
-import {filterByGender,createOrExist} from "../../redux/actions";
+import {filterByGender} from "../../redux/actions";
 
 const FilterBar = ({allVideg})=>{
 
     const dispatch = useDispatch();
     const [filter, setFilter] = useState([]);
-    // const [order, setOrder] = useState([]);
+    //const [exist, setExist] = useState([]);
     
     useEffect(() => {
         fetch("http://localhost:3001/genres")
@@ -26,15 +26,21 @@ const FilterBar = ({allVideg})=>{
       }, []);
       
       function handlerFilterGender(e){ //despacho de accion traer geners
-        // setPage(1);
-        
         dispatch(filterByGender(e.target.value));
     }
     
-    function handlerFilterCrOEx(e){ //despacho de accion traer existe o creados
-        //setPage(1);
-        dispatch(createOrExist(e.target.value));
-    }
+    // const handlerFilterCrOEx = (e) => {
+    //     const filteredVideos = allVideg.filter((video) => {
+    //       return e.target.value === 'Created' ? video.hasOwnProperty('isDB') : !video.hasOwnProperty('isDB');
+    //     });
+    //   console.log(filteredVideos);
+    //     setExist(filteredVideos);
+    //   }
+      
+     // case CREATE_OR_EXIST:
+    //     const createdFilter = action.payload === 'Created'
+    //     ? state.allVideogames.filter((v)=> v.created)
+    //     : state.allVideogames.filter((v)=> !v.created)
     
     return(
         <div className={style.main}>
@@ -57,14 +63,13 @@ const FilterBar = ({allVideg})=>{
         
 
             </div>
-            <div>
+            {/* <div>
                 <select onChange={(e)=>handlerFilterCrOEx(e)}>
-                  <option value="">Select</option>
-                  <option value="all">All videogames</option>
+                  <option value="">DataBase</option>
                   <option value="Created">Created Videogames</option>
                   <option value="Existent">Existent Videogames</option>
                 </select>
-            </div>
+            </div> */}
             
         </div> 
     )
