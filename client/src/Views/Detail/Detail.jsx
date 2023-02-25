@@ -8,13 +8,13 @@ import {useParams, Link} from 'react-router-dom';
 const Detail = ()=>{
     const dispatch = useDispatch();
     const {id} = useParams();
-    console.log(id);
+   
     useEffect(()=> {
          dispatch(getDetail(id));
     },[dispatch,id]);
     
     const detail = useSelector((state)=> state.detail);
-console.log(detail);
+
     return (
         <>
         <div>
@@ -26,7 +26,7 @@ console.log(detail);
                         <h2>Id: {detail.id}</h2>
                         <h4>Released: {detail.released}</h4>
                         <h4>Rating: {detail.rating}</h4>
-                        <h4>{detail.description}</h4>
+                        <h4>Description: {detail.description}</h4>
                         <h4>Genres: </h4>
                         <ul>
                             {

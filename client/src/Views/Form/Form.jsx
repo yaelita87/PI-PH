@@ -69,7 +69,7 @@ const Form = ()=>{
     }
     
     const selectHandler = (e)=>{
-        console.log(e.target);
+        
         const prop = e.target.value   //selecciono entre los distinros generos de videjuegos
         setForm({
             ...form, 
@@ -86,25 +86,25 @@ const Form = ()=>{
                 [e.target.name]: e.target.value
             })
         )
-        // if(Object.keys(error).length === 0){   //si el form no maneja errores 
+        if(Object.keys(error).length === 0){   //si el form no maneja errores 
             dispatch(postVg(form));        // despacho la accion del formulario
             alert("Videogame Created Success");  //alerta de videojuego creado
-            // setForm({                    //seteo de formulario para que sus valores vuelvan a cero
-            //     name:"",
-            //     description: "",
-            //     release: "",
-            //     rating: 0,
-            //     genre: [],
-            //     background_image: "",
-            //    platforms: [],
-            // });
+            setForm({                    //seteo de formulario para que sus valores vuelvan a cero
+                name:"",
+                description: "",
+                release: "",
+                rating: 0,
+                genre: [],
+                background_image: "",
+               platforms: [],
+            });
 
-        // } else {
-        //     alert("Failed");
-        //     return;
-        // }
+        } else {
+            alert("Failed");
+            return;
+        }
     }
-console.log(form);
+
     
 //esquema del formulario
     return (

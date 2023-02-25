@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {useDispatch} from 'react-redux';
 import {filterByGender} from "../../redux/actions";
 
-const FilterBar = ({allVideg})=>{
+const FilterBar = ()=>{
 
     const dispatch = useDispatch();
     const [filter, setFilter] = useState([]);
@@ -29,18 +29,6 @@ const FilterBar = ({allVideg})=>{
         dispatch(filterByGender(e.target.value));
     }
     
-    // const handlerFilterCrOEx = (e) => {
-    //     const filteredVideos = allVideg.filter((video) => {
-    //       return e.target.value === 'Created' ? video.hasOwnProperty('isDB') : !video.hasOwnProperty('isDB');
-    //     });
-    //   console.log(filteredVideos);
-    //     setExist(filteredVideos);
-    //   }
-      
-     // case CREATE_OR_EXIST:
-    //     const createdFilter = action.payload === 'Created'
-    //     ? state.allVideogames.filter((v)=> v.created)
-    //     : state.allVideogames.filter((v)=> !v.created)
     
     return(
         <div className={style.main}>
@@ -63,13 +51,7 @@ const FilterBar = ({allVideg})=>{
         
 
             </div>
-            {/* <div>
-                <select onChange={(e)=>handlerFilterCrOEx(e)}>
-                  <option value="">DataBase</option>
-                  <option value="Created">Created Videogames</option>
-                  <option value="Existent">Existent Videogames</option>
-                </select>
-            </div> */}
+           
             
         </div> 
     )
@@ -78,6 +60,19 @@ const FilterBar = ({allVideg})=>{
 
 export default FilterBar;
 
+
+// const handlerFilterCrOEx = (e) => {
+//     const filteredVideos = allVideg.filter((video) => {
+//       return e.target.value === 'Created' ? video.hasOwnProperty('isDB') : !video.hasOwnProperty('isDB');
+//     });
+//   console.log(filteredVideos);
+//     setExist(filteredVideos);
+//   }
+  
+ // case CREATE_OR_EXIST:
+//     const createdFilter = action.payload === 'Created'
+//     ? state.allVideogames.filter((v)=> v.created)
+//     : state.allVideogames.filter((v)=> !v.created)
 
 
 

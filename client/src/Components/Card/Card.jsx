@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({game })=>{ //traigo las props
-console.log(game);
+
     
     return(
         <div className={style.content}>
