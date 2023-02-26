@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { getVideogames } from "../../redux/actions.js";
 import { Paginado } from "../../Components/Paginado/Paginado";
+import style from "./Home.module.css";
 
 
 //armo el home 
@@ -26,9 +27,9 @@ const Home = ()=>{
     if(allVideog) {
 
     return (
-        <div>
-            <div>
-               <h1>Videogames</h1>
+        <div className={style.container}>
+            <div className={style.main}>
+               <h1 className={style.titulo}>Videogames</h1>
                 <FilterBar/>
         </div>
           <CardsContainer vgPerPage={vgPerPage}  page = {page} allVideg={allVideog}/>
@@ -38,7 +39,7 @@ const Home = ()=>{
         vgPerPage={vgPerPage} page={page} setPage={setPage}/>
 
         </div>
-    ) } else{ return(<div> Cargando...</div>)}
+    ) } else{ return(<div> ...Loading</div>)}
 }
 
 export default Home;

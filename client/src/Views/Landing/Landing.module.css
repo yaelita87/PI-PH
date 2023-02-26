@@ -1,13 +1,35 @@
 .container{
-   background: url("../../Images/412399-Pacman-Pac-Man-arcade-3D-sketchup-Namco.jpeg");
-   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 100%;
+    text-align: center;
+    margin-top: 400px;
+    background-color: white;
 }
 
 .lanh1{
-    color: aliceblue;
+    font-size: 3rem;
+    color: white;
+    -webkit-text-stroke: 1px #000000;
+    font-family: 'Permanent Marker', cursive;
 }
 .lanh2{
-    color: white;
+    color: #42B5CB;
+    -webkit-text-stroke: 2px #070707;
+    font-weight: normal;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.boton{
+    display: inline;
+    position: relative;
+    height: 42px;
+    width: 70px;
+    border: 1px solid #cc66ff;
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fb4ddec5;
+    transition: background .1s ease;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

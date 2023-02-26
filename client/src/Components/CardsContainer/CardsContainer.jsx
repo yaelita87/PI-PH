@@ -57,21 +57,23 @@ const CardsContainer = ({ vgPerPage, page, allVideg }) => {
     
     return (
       <div>
-      <select onChange={handleSort}>
-        <option value="All">Alphabetic</option>
-        <option value="asc">A to Z</option>
-        <option value="desc">Z to A</option>
+        <div className={style.padre}>
+      <select className={style.select} onChange={handleSort}>
+        <option className={style.option} value="All">Alphabetic</option>
+        <option className={style.option} value="asc">A to Z</option>
+        <option className={style.option} value="desc">Z to A</option>
       </select>
-      <select onChange={handleFilter}>
-        <option value="">DataBase</option>
-        <option value="Created">Created Videogames</option>
-        <option value="Existent">Existent Videogames</option>
+      <select className={style.select} onChange={handleFilter}>
+        <option className={style.option} value="">DataBase</option>
+        <option className={style.option} value="Created">Created Videogames</option>
+        <option className={style.option} value="Existent">Existent Videogames</option>
       </select>
-      <select onChange={handleRating}>
-       <option value="">Rating</option>
-       <option value="low">LOW</option>
-       <option value="high">HIGH</option>
+      <select className={style.select} onChange={handleRating}>
+       <option className={style.option} value="">Rating</option>
+       <option className={style.option} value="low">LOW</option>
+       <option className={style.option} value="high">HIGH</option>
      </select>
+     </div>
       <div className={style.container}>
         {games.slice(start, end).map((game) => (
           <Card

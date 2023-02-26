@@ -21,15 +21,14 @@ function validate(form){    //funcion para validar que los espacios obligarios d
 const Form = ()=>{
 
     const dispatch = useDispatch();
-    const history = useHistory(); //acceso a la instacia del historial (para que vuelva a home)
+
     const genre = useSelector((state) => state.genre);  //stado del reducer
-    
-    
     
     const [error, setError]= useState({
         name:"",
         description:""
     }); //estado de errores (funcion validate)
+    
     const [form, setForm] = useState({   //seteo de estado del form 
         name: "",                       //contenido a agregar al form mediante el post 
         description: "",
@@ -38,6 +37,7 @@ const Form = ()=>{
         gender: [],
         background_image: "",
         platforms: [],
+        image: null,
     });
     
     useEffect(()=>{
@@ -74,9 +74,7 @@ const Form = ()=>{
         setForm({
             ...form, 
             gender: [...form.gender,prop]
-            
-            
-        });
+            });
     }
     const submitHandler = (e)=>{   //manejador del boton de submit para enviar el formulario
         e.preventDefault();
@@ -104,48 +102,50 @@ const Form = ()=>{
             return;
         }
     }
+   
+      
 
     
 //esquema del formulario
     return (
         <>
-        <div>
+        <div className={style.container}>
             <div>
                 <Link to="/home" >
-                    <button>Back</button>
+                    <button className={style.button}>Back</button>
                 </Link>
             </div>
-            <div>
-                <h1>Create Your Videogame</h1>
+            <div className={style.main}>
+                <h1 className={style.h1}>Create Your Videogame</h1>
             </div>
-            <form action="create" onSubmit={(e)=>submitHandler(e)}>
-            <div>
-                <label htmlFor="">Name:</label>
-                <input type="text"
+            <form className={style.form} action="create" onSubmit={(e)=>submitHandler(e)}  encType="multipart/form-data">
+            <div className={style.div}>
+                <label className={style.label} htmlFor="">Name:</label>
+                <input className={style.input} type="text"
                 required value={form.name}
                 onChange={(e)=>{handleInputChange(e)}} 
                 name="name"/>
                 {error.name && <p>{error.name}</p>}
             </div>
-            <div>
-                <label htmlFor="">Description:</label>
-                <input type="text"
+            <div className={style.div}>
+                <label className={style.label} htmlFor="">Description:</label>
+                <input className={style.input} type="text"
                 required value={form.description}
                 onChange={(e)=> {handleInputChange(e)}}
                 name="description" />
                 {error.description  && <p>{error.description}</p>}
             </div>
-            <div>
-            <label htmlFor="">Release:</label>
-                <input type="date"
+            <div className={style.div}>
+            <label className={style.label} htmlFor="">Release:</label>
+                <input className={style.input} type="date"
                 required value={form.release}
                 onChange={(e)=> {handleInputChange(e)}}
                 name="release" />
                
             </div>
-            <div>
-            <label htmlFor="">Rating:</label>
-                <input type="number"
+            <div className={style.div}>
+            <label className={style.label} htmlFor="">Rating:</label>
+                <input  className={style.input} type="number"
                 min="0"
                 max="5"
                 required value={form.rating}
@@ -153,33 +153,34 @@ const Form = ()=>{
                 name="rating" />
                
             </div>
-            <div>
-            <label htmlFor="">Genres:</label>
-                <select onChange={(e)=> selectHandler(e)}>
+            <div className={style.div}>
+            <label className={style.label} htmlFor="">Genres:</label>
+                <select className={style.select} onChange={(e)=> selectHandler(e)}>
                     {genre.map(g=>(
-                        <option value={g.name} key={g.id}>{g.name}</option>
+                        <option  className={style.option} value={g.name} key={g.id}>{g.name}</option>
                     ))}
                 </select>
                                
             </div>
-            <div>
-                <label htmlFor="">Platforms:</label>
-                <select name="platforms" id="" onChange={(e)=>selectPlat(e)}>
-                <option value="Ps3">Ps3</option>
-                <option value="Ps4">Ps4</option>
-                <option value="Ps Vita">Ps Vita</option>
-                <option value="Xbox">XBox</option>
-                <option value="Xbox 360">Xbox 360</option>
-                <option value="Nintendo">Nintendo</option>
-                <option value="MacOs">MacOS</option>
-                <option value="PC">PC</option>
-                <option value="Linux">Linux</option>
+            <div className={style.div}>
+                <label className={style.label} htmlFor="">Platforms:</label>
+                <select className={style.select} name="platforms" id="" onChange={(e)=>selectPlat(e)}>
+                <option className={style.option} value="Ps3">Ps3</option>
+                <option className={style.option} value="Ps4">Ps4</option>
+                <option className={style.option} value="Ps Vita">Ps Vita</option>
+                <option className={style.option} value="Xbox">XBox</option>
+                <option className={style.option} value="Xbox 360">Xbox 360</option>
+                <option className={style.option} value="Nintendo">Nintendo</option>
+                <option className={style.option} value="MacOs">MacOS</option>
+                <option className={style.option} value="PC">PC</option>
+                <option className={style.option} value="Linux">Linux</option>
                 </select>
             </div>
            
         
             <div>
-                <label htmlFor="">Image:</label>
+
+             <label htmlFor="">Image:</label>
                 <input type="file"
                 value={form.background_image}
                 onChange={(e)=>handleInputChange(e)}

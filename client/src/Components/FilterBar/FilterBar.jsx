@@ -33,13 +33,13 @@ const FilterBar = ()=>{
     return(
         <div className={style.main}>
             
-            <div>
-                <select onChange={(e)=>handlerFilterGender(e)}>
-                    <option value="all">Genres</option>
+            
+                <select className={style.select} onChange={(e)=>handlerFilterGender(e)}>
+                    <option className={style.option} value="all">Genres</option>
                     
                    {
                        filter.map((g)=> (
-                           <option value={g.name}>
+                           <option className={style.option} value={g.name}>
                                {g.name}
                            
                            </option>
@@ -50,7 +50,7 @@ const FilterBar = ()=>{
 
         
 
-            </div>
+           
            
             
         </div> 

@@ -4,12 +4,12 @@ import Landing from "./Views/Landing/Landing";
 import Detail from "./Views/Detail/Detail";
 import Form from "./Views/Form/Form";
 import NavBar from "./Components/NavBar/NavBar";
-
+import style from "./App.module.css"
 //solo seteo las rutas e importo los componentes ppales
 function App() {
   const location = useLocation();
   return (
-    <div className="App">
+    <div className={style.div}>
       {location.pathname !== "/" && <NavBar/>}
 
       <Route exact path="/" render = { ()=>

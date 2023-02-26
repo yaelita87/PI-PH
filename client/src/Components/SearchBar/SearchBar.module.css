@@ -1,0 +1,31 @@
+.div {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+  }
+  
+  .input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #883ead;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .button:hover{
+    outline: none;
+    background-color: #343333;
+    color: #ffffff;
+}
+  

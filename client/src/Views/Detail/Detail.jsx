@@ -17,43 +17,48 @@ const Detail = ()=>{
 
     return (
         <>
-        <div>
+        <div className={style.container}>
             {
                 detail ? (
-                    <div>
-                        <img src={detail.background_image} alt={detail.name} width="200px" height="220px"/>
-                        <h2>Name: {detail.name}</h2>
-                        <h2>Id: {detail.id}</h2>
-                        <h4>Released: {detail.released}</h4>
-                        <h4>Rating: {detail.rating}</h4>
-                        <h4>Description: {detail.description}</h4>
-                        <h4>Genres: </h4>
-                        <ul>
+                    <div className={style.main}>
+                        <img className={style.img} src={detail.background_image} alt={detail.name} width="200px" height="220px"/>
+                        <div className={style.contInfo}>
+                        <h2 className={style.h2}>Name: {detail.name}</h2>
+                        <h2 className={style.h2}>Id: {detail.id}</h2>
+                        <h4 className={style.h4}>Released: {detail.released}</h4>
+                        <h4 className={style.h4}>Rating: {detail.rating}</h4>
+                        <h4 className={style.h4}>Description: {detail.description}</h4>
+                        </div>
+                        <div className={style.div2}>
+                        <h4 className={style.h4}>Genres: </h4>
+                        <ul className={style.ul}>
                             {
                                 detail.genres?.map((g)=>(
-                                    <li>{g.name}</li>
+                                    <li className={style.li}>{g.name}</li>
                                 ))
                             }
                         </ul>
-                        <h4>Platforms:</h4>
-                        <ul>
+                        </div>
+                        <div className={style.div2}>
+                        <h4 className={style.h4}>Platforms:</h4>
+                        <ul className={style.ul}>
                             {
                                 detail.platforms?.map((p)=>(
-                                    <li>{p}</li>
+                                    <li className={style.li}>{p}</li>
                                 ))
                             }
                         </ul>
-                        
+                        </div>
                                
                     </div>
                 ) : (
                   <div>
-                        <h2>...loading</h2>
+                        <h2 className={style.h2}>...loading</h2>
                   </div>
                 )}
         <div>
            <Link to={"/home"}>
-           <button>Back</button>
+           <button className={style.button}>Back</button>
            </Link>
         </div>
         </div>

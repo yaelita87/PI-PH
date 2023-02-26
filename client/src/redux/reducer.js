@@ -14,7 +14,7 @@ const initialState = {
     genre: [],
     detail:{},
    allVideogames:[],
-   filter:[],
+   image:[],
 }
 
 

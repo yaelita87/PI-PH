@@ -10,6 +10,7 @@ const apiFilter = (item)=> {
       released: item.released,
       background_image: item.background_image,
       isDB: item.isDB,
+      description: item.description,
       //genres: item.genres.map((g)=>g.name).join(', '),
       genres: item.genres.map((g)=> {
         return{
