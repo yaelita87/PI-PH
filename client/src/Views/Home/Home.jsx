@@ -15,16 +15,10 @@ const Home = ()=>{
 
     useEffect(()=> {dispatch(getVideogames())},[dispatch]); //hago la peticion para q se ejecute la action
 
-
-
-
     //paginado
     const totalVg = allVideog?.length; //total juegos
     const vgPerPage = 15; //cant x pag
     const [page, setPage] = useState(1); //pag actual
-
-
-    if(allVideog) {
 
     return (
         <div className={style.container}>
@@ -32,14 +26,13 @@ const Home = ()=>{
                <h1 className={style.titulo}>Videogames</h1>
                 <FilterBar/>
         </div>
-          <CardsContainer vgPerPage={vgPerPage}  page = {page} allVideg={allVideog}/>
+        
+        <CardsContainer vgPerPage={vgPerPage}  page= {page} allVideg={allVideog}/>
 
-
-        <Paginado totalVg={totalVg} 
-        vgPerPage={vgPerPage} page={page} setPage={setPage}/>
+        <Paginado totalVg={totalVg} vgPerPage={vgPerPage} page={page} setPage={setPage}/>
 
         </div>
-    ) } else{ return(<div> ...Loading</div>)}
+    )
 }
 
 export default Home;

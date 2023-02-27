@@ -27,7 +27,9 @@ const Detail = ()=>{
                         <h2 className={style.h2}>Id: {detail.id}</h2>
                         <h4 className={style.h4}>Released: {detail.released}</h4>
                         <h4 className={style.h4}>Rating: {detail.rating}</h4>
-                        <h4 className={style.h4}>Description: {detail.description}</h4>
+                        {detail.description && (
+                            <h4 className={style.h4}>Description: {detail.description.replace(/[<p></p>]/g, '')}</h4>
+                        )}
                         </div>
                         <div className={style.div2}>
                         <h4 className={style.h4}>Genres: </h4>

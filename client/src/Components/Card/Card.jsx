@@ -12,7 +12,7 @@ const Card = ({game })=>{ //traigo las props
             <Link to={`/detail/${game.id}`}>
             <h3 className={style.name}>{game.name}</h3>
             </Link>
-            <h5 className={style.h5}>{game.id}</h5>
+            <h5 className={style.h5}>ID# {game.id}</h5>
             <h5 className={style.h5}>
                 {
                     game.genres?.map((g)=>(

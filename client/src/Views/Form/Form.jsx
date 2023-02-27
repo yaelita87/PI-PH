@@ -112,30 +112,30 @@ const Form = ()=>{
         <div className={style.container}>
             <div>
                 <Link to="/home" >
-                    <button className={style.button}>Back</button>
+                    <button className={style.button}> &lt; Back</button>
                 </Link>
             </div>
             <div className={style.main}>
                 <h1 className={style.h1}>Create Your Videogame</h1>
             </div>
-            <form className={style.form} action="create" onSubmit={(e)=>submitHandler(e)}  encType="multipart/form-data">
-            <div className={style.div}>
+            <form action="create" onSubmit={(e)=>submitHandler(e)}  encType="multipart/form-data">
+            <div className={style.inputWrapper}>
                 <label className={style.label} htmlFor="">Name:</label>
                 <input className={style.input} type="text"
                 required value={form.name}
                 onChange={(e)=>{handleInputChange(e)}} 
                 name="name"/>
-                {error.name && <p>{error.name}</p>}
+                {error.name && <p className={style.errorWrapper}>{error.name}</p>}
             </div>
-            <div className={style.div}>
+            <div className={style.inputWrapper}>
                 <label className={style.label} htmlFor="">Description:</label>
                 <input className={style.input} type="text"
                 required value={form.description}
                 onChange={(e)=> {handleInputChange(e)}}
                 name="description" />
-                {error.description  && <p>{error.description}</p>}
+                {error.description  && <p className={style.errorWrapper}>{error.description}</p>}
             </div>
-            <div className={style.div}>
+            <div className={style.inputWrapper}>
             <label className={style.label} htmlFor="">Release:</label>
                 <input className={style.input} type="date"
                 required value={form.release}
@@ -143,7 +143,7 @@ const Form = ()=>{
                 name="release" />
                
             </div>
-            <div className={style.div}>
+            <div className={style.inputWrapper}>
             <label className={style.label} htmlFor="">Rating:</label>
                 <input  className={style.input} type="number"
                 min="0"
@@ -153,7 +153,7 @@ const Form = ()=>{
                 name="rating" />
                
             </div>
-            <div className={style.div}>
+            <div className={style.inputWrapper}>
             <label className={style.label} htmlFor="">Genres:</label>
                 <select className={style.select} onChange={(e)=> selectHandler(e)}>
                     {genre.map(g=>(
@@ -162,7 +162,7 @@ const Form = ()=>{
                 </select>
                                
             </div>
-            <div className={style.div}>
+            <div className={style.inputWrapper}>
                 <label className={style.label} htmlFor="">Platforms:</label>
                 <select className={style.select} name="platforms" id="" onChange={(e)=>selectPlat(e)}>
                 <option className={style.option} value="Ps3">Ps3</option>

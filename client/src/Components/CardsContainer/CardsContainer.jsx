@@ -72,8 +72,13 @@ const CardsContainer = ({ vgPerPage, page, allVideg }) => {
        <option className={style.option} value="">Rating</option>
        <option className={style.option} value="low">LOW</option>
        <option className={style.option} value="high">HIGH</option>
-     </select>
+      </select>
      </div>
+      {!games.length && (
+        <div className={style.loaderWrapper}>
+          <div className={style.loader}><div></div><div></div><div></div><div></div></div>
+        </div>
+      )}
       <div className={style.container}>
         {games.slice(start, end).map((game) => (
           <Card
@@ -83,8 +88,8 @@ const CardsContainer = ({ vgPerPage, page, allVideg }) => {
             id={game.id}
             background_image={game.background_image}
             genres={game.genres}
-            />
-            ))}
+          />
+        ))}
       </div>
     </div>
   );

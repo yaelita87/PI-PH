@@ -1,39 +1,51 @@
 .container{
-    background-color: bisque;
+    background-color: rgba(0,0,0,0.5);
+    /* width: 80vw; */
+    padding: 20px;
+    margin-top: 30px;
+    width: 50vw;
+    min-width: 720px;
 }
 .button{
-    background-color: red;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 2px;
 }
-.main{
-    background-color: aqua;
+.h1{
+    color: white;
 }
 
-.h1{
-    color: chocolate;
+form {
+    
 }
-.form{
-    background-color: cadetblue;
-}
-.div{
-    background-color: beige;
+
+.inputWrapper {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .label{
-    color: violet;
+    color: white;
+    text-transform: uppercase;
 }
 
 .input{
-    background-color: tomato;
-}
-
-.select{
-    color: aqua;
-}
-
-.option{
-    background-color: blueviolet;
+    background-color: white;
 }
 
 
-
+.errorWrapper {
+    flex-basis: 100%;
+    color: red;
+    margin: 0px;
+}
 
