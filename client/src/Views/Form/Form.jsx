@@ -37,7 +37,7 @@ const Form = ()=>{
         gender: [],
         background_image: "",
         platforms: [],
-        image: null,
+    
     });
     
     useEffect(()=>{
@@ -163,8 +163,6 @@ const Form = ()=>{
                 </select>
 
            </div>
-                               
-            {/* </div> */}
             <div className={style.inputWrapper}>
                 <label className={style.label} htmlFor="">Platforms:</label>
                 <select className={style.select} name="platforms" id="" onChange={(e)=>selectPlat(e)}>
@@ -182,13 +180,12 @@ const Form = ()=>{
            
         
             <div className={style.inputWrapper}>
-
-             <label className={style.label} htmlFor="">Image:</label>
-                <input className={style.select}  type="file"
-                value={form.background_image}
-                onChange={(e)=>handleInputChange(e)}
-                name="iamge"
-                accept='image/png, image/jpg' />
+            <label className={style.label} htmlFor="">Image URL:</label>
+             <input className={style.select} type="text"
+              value={form.background_image}
+              onChange={(e) => handleInputChange(e)}
+              name="background_image" />
+            
             </div>
             <div>
                 <button className={style.button2} type='submit' >
