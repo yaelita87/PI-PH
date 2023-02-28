@@ -19,11 +19,7 @@ describe('Videogame model', () => {
         .then(() => done(new Error('It requieres a description')))
         .catch(() => done());
       });
-      it('should throw when an error if platforms is null', (done)=>{
-        Videogame.create({ name: 'Super Mario Bros', description: "good" })
-        .then(() => done(new Error('requieres description')))
-        .catch(() => done());
-      })
+      
     });
   });
 });

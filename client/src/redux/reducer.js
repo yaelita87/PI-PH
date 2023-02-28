@@ -4,6 +4,7 @@ import {GET_VIDEOGAMES,
        GET_DETAIL,
         POST_VG,
          GET_GENRES,
+         REMOVE,
          //ALPHABETICAL,
          //CREATE_OR_EXIST,
         // RATING
@@ -68,6 +69,11 @@ const reducer = (state= initialState, action) =>{
             videogames: action.payload === "all" ? allGenresVg : filterVG
         
     }
+    case REMOVE:
+        return{
+            ...state, 
+            detail: action.payload
+        }
     default:
         return {...state};
     }

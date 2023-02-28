@@ -67,13 +67,13 @@ const Form = ()=>{
              platforms: [...form.platforms, prop]
          })
     }
-    
+ 
     const selectHandler = (e)=>{
         
-        const prop = e.target.value   //selecciono entre los distinros generos de videjuegos
+          //selecciono entre los distinros generos de videjuegos
         setForm({
             ...form, 
-            gender: [...form.gender,prop]
+            gender: [...form.gender, e.target.value]
             });
     }
     const submitHandler = (e)=>{   //manejador del boton de submit para enviar el formulario
@@ -92,7 +92,7 @@ const Form = ()=>{
                 description: "",
                 release: "",
                 rating: 0,
-                genre: [],
+                gender: [],
                 background_image: "",
                platforms: [],
             });
@@ -102,6 +102,7 @@ const Form = ()=>{
             return;
         }
     }
+    console.log(form);
    
       
 
@@ -154,14 +155,16 @@ const Form = ()=>{
                
             </div>
             <div className={style.inputWrapper}>
-            <label className={style.label} htmlFor="">Genres:</label>
+            <label className={style.label} htmlFor="">Genres:</label> 
                 <select className={style.select} onChange={(e)=> selectHandler(e)}>
                     {genre.map(g=>(
                         <option  className={style.option} value={g.name} key={g.id}>{g.name}</option>
                     ))}
                 </select>
+
+           </div>
                                
-            </div>
+            {/* </div> */}
             <div className={style.inputWrapper}>
                 <label className={style.label} htmlFor="">Platforms:</label>
                 <select className={style.select} name="platforms" id="" onChange={(e)=>selectPlat(e)}>
@@ -197,6 +200,5 @@ const Form = ()=>{
         </>
     )
 }
-
 
 export default Form;

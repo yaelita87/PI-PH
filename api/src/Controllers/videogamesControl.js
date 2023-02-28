@@ -102,7 +102,7 @@ const getAllApiVideogames = async ()=>{
     description, 
     released,
     rating,
-  genres,
+    genres,
   platforms,
   background_image) => {
     
@@ -113,11 +113,11 @@ const getAllApiVideogames = async ()=>{
       rating, 
       platforms, 
      
-      background_image: background_image || "https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg",
+      background_image,
     });
     
     
-    let dbGender = await Genre.findOne({
+    let dbGender = await Genre.findAll({
       where: {name: genres}
     })
     if(!dbGender) dbGender = await Genre.create({name: genres});

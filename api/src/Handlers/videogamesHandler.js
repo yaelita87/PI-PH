@@ -35,7 +35,7 @@ const getVideogamesHandler = async (req, res)=>{ //revisar este handler pasarlo 
     const createVideogamesHandler = async (req, res)=>{
         const {name, description, release,rating,gender,platforms,background_image} = req.body;
         
-        const newVg = await createVideogame(name, description, release, rating,gender,platforms,background_image);
+        const newVg = await createVideogame(name, description, release, rating,gender,platforms,background_image ||"https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg");
         
         res.status(200).send(newVg)
         

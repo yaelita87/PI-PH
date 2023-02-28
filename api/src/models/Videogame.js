@@ -41,7 +41,7 @@ module.exports = (sequelize) => {
       defaultValue: "true",
     },
     background_image: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       defaultValue: "https://plantillasdememes.com/img/plantillas/imagen-no-disponible01601774755.jpg",
     },
 

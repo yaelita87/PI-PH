@@ -9,7 +9,7 @@ export const POST_VG = 'POST_VG';
 export const CREATE_OR_EXIST = 'CREATE_OR_EXIST';
 export const ALPHABETICAL = 'ALPHABETICAL';
 export const RATING = 'RATING';
-
+export const REMOVE= 'REMOVE';
 
 
 
@@ -97,5 +97,12 @@ export function ratingFilter(payload){
   return{
     type: 'RATING',
     payload,
+  }
+}
+
+export function detailRemove(payload){
+  return{
+    type: 'REMOVE',
+    payload: payload
   }
 }
