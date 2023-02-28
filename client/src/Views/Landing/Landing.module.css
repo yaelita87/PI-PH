@@ -4,10 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   background-image: url('https://windowscustomization.com/wp-content/uploads/2019/03/Arcade.gif');
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .container{
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.38);
     border-radius: 10px;
     padding: 10px 20px;
     text-align: center;
@@ -22,21 +25,22 @@
 .lanh2{
     color: #42B5CB;
     font-weight: normal;
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: center;
 }
 
 .boton{
     margin-top: 30px;
-    display: inline;
+    display:inline;
     position: relative;
-    height: 42px;
-    width: 70px;
-    border: 1px solid #cc66ff;
+    height: 60px;
+    width: 80px;
+    border: 1px solid #42B5CB;
     background-color: black;
     font-weight: bold;
+    font-size: large;
     cursor: pointer;
-    color: #fb4ddec5;
+    color: #42B5CB;
     transition: background .1s ease;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

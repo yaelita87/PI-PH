@@ -3,10 +3,12 @@
     /* width: 80vw; */
     padding: 20px;
     margin-top: 30px;
-    width: 50vw;
+    width: 60vw;
     min-width: 720px;
+    
 }
 .button{
+    margin-top: 5px;
     background: none!important;
     border: none;
     padding: 0!important;
@@ -18,16 +20,30 @@
     font-size: 1em;
     letter-spacing: 2px;
 }
+.button2 {
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.729);
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .button2:hover{
+    outline: none;
+    background-color: #343333;
+    color: #ffffff;
+}
+
 .h1{
     color: white;
 }
 
-form {
-    
-}
+
 
 .inputWrapper {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -36,10 +52,17 @@ form {
 .label{
     color: white;
     text-transform: uppercase;
+    font-size: large;
 }
 
 .input{
+    margin-top: 3px;
     background-color: white;
+    font-size: large;
+}
+.select{
+    margin-top: 3px;
+    font-size: large;
 }
 
 

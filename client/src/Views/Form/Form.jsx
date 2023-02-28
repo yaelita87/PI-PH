@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { getGenre, postVg } from '../../redux/actions';
 import style from './Form.module.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 
@@ -178,17 +178,17 @@ const Form = ()=>{
             </div>
            
         
-            <div>
+            <div className={style.inputWrapper}>
 
-             <label htmlFor="">Image:</label>
-                <input type="file"
+             <label className={style.label} htmlFor="">Image:</label>
+                <input className={style.select}  type="file"
                 value={form.background_image}
                 onChange={(e)=>handleInputChange(e)}
                 name="iamge"
                 accept='image/png, image/jpg' />
             </div>
             <div>
-                <button type='submit' >
+                <button className={style.button2} type='submit' >
                     Create
                 </button>
             </div>
